@@ -21,4 +21,4 @@ for hth in ht_headings:
     ht_news.append(hth.text)
 
 def index(req):
-    return render(req, 'news/index.html',{'toi_news':toi_news, 'ht_news': ht_news})
+    return render(req, 'news/trending.html',{'toi_news':toi_news, 'ht_news': ht_news})
