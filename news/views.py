@@ -4,21 +4,35 @@ from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 
-toi_r = requests.get("https://timesofindia.indiatimes.com/briefs")
-toi_soup = BeautifulSoup(toi_r.content, 'html5lib')
-toi_headings = toi_soup.find_all('h2')
-toi_headings=toi_headings[2:-13]
-toi_news=[]
-for th in toi_headings:
-    toi_news.append(th.text)
+toi_t_r = requests.get("https://timesofindia.indiatimes.com/briefs")
+toi_t_soup = BeautifulSoup(toi_t_r.content, 'html5lib')
+toi_t_headings = toi_t_soup.find_all('h2')
+toi_t_headings=toi_t_headings[2:-13]
+toi_t_news=[]
+for th in toi_t_headings:
+    toi_t_news.append(th.text)
 
-ht_r = requests.get("https://www.tribuneindia.com/news/nation")
-ht_soup = BeautifulSoup(ht_r.content, 'html5lib')
-ht_headings = ht_soup.findAll("h4", {"class": "ts-card-title"})
-#ht_headings = ht_headings[2:]
-ht_news = []
-for hth in ht_headings:
-    ht_news.append(hth.text)
+tt_tr = requests.get("https://www.tribuneindia.com/news/home")
+tt_tsoup = BeautifulSoup(tt_tr.content, 'html5lib')
+tt_theadings = tt_tsoup.findAll("a", {"class": "card-top-align"})
+#tt_theadings = tt_theadings[2:]
+tt_tnews = []
+for hth in tt_theadings:
+    tt_tnews.append(hth.text)
 
 def index(req):
-    return render(req, 'news/trending.html',{'toi_news':toi_news, 'ht_news': ht_news})
+    return render(req, 'news/home.html')
+def index1(req):
+    return render(req, 'news/trending.html',{'toi_t_news':toi_t_news, 'tt_tnews': tt_tnews})
+def index2(req):
+    return render(req, 'news/homeaffairs.html',)
+def index3(req):
+    return render(req, 'news/foreignaffairs.html',)
+def index4(req):
+    return render(req, 'news/sports.html',)
+def index5(req):
+    return render(req, 'news/snt.html')
+def index6(req):
+    return render(req, 'news/busi.html')
+def index7(req):
+    return render(req, 'news/dtu.html')
