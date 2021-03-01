@@ -19,7 +19,7 @@ from news import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.index),
+    path('', views.index),
     path('trending/', views.index1),
     path('homeaffairs/', views.index2),
     path('foreignaffairs/', views.index3),
