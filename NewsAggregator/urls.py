@@ -21,10 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('trending/', views.index1),
-    path('homeaffairs/', views.index2),
-    path('foreignaffairs/', views.index3),
-    path('sports/', views.index4),
-    path('snt/', views.index5),
-    path('busi/', views.index1),
-    path('dtu/', views.index7)    
-]
+#     path('homeaffairs/', views.index2),
+#     path('foreignaffairs/', views.index3),
+#     path('sports/', views.index4),
+#     path('snt/', views.index5),
+#     path('busi/', views.index1),
+#     path('dtu/', views.index7)    
+ ]
