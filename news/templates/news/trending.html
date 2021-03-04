@@ -3,18 +3,24 @@
 <head>
     <title>NewsAggregator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        h1{
+            font-family: cursive;
+        }
+    </style>
 </head>
 <body>
     <div class="jumbotron">
-        <center><h1>B11 News Aggregator</h1>
-           <a href="/" class="btn btn-danger">Refresh News</a>
+        <center><h1>TRENDINGS HERE</h1>
+           <a href="/" class="btn btn-danger">Refresh News</a><br><br>
+           <a href="http://127.0.0.1:8000/" class="btn btn-danger">Home</a>
         </form>
     </center>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-6">
-                    <h3 class="text-centre"> News from Times of india</h3>
+                    <h3 class="text-centre"> News from  The Times of India</h3>
                     {% for n in toi_t_news %}
                     <a href="https://timesofindia.indiatimes.com/briefs" target=_blank> -  {{n}} </a>
                     <hr>
