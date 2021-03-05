@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>NewsAggregator</title>
+    <title>Home Affairs</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        h1{
+            font-family: cursive;
+        }
+    </style>
 </head>
 <body>
     <div class="jumbotron">
-        <center><h1>B11 News Aggregator</h1>
-           <a href="/" class="btn btn-danger">Refresh News</a>
+        <center><h1>HOME AFFAIRS</h1>
+           <a href="/homeaffairs" class="btn btn-danger">Refresh News</a><br><br>
+           <a href="/" class="btn btn-danger">Home</a>
         </form>
     </center>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-6">
-                    <h3 class="text-centre"> News from Times of india</h3>
-                    {% for n in toi_news %}
-                    <a href="https://timesofindia.indiatimes.com/india" target=_blank> -  {{n}} </a>
+                    <h3 class="text-centre"> News from  The Times of India</h3>
+                    {% for n in toi_t_news %}
+                    <a href="https://timesofindia.indiatimes.com/briefs" target=_blank> -  {{n}} </a>
                     <hr>
                     {% endfor %}
                     <br>
             </div>
             <div class="col-6">
                     <h3 class="text-centre">News from The Tribune </h3>
-                    {% for htn in ht_news %}
-                    <a href="https://www.tribuneindia.com/news/nation" target=_blank> - {{htn}} </a>
+                    {% for htn in tt_tnews %}
+                    <a href="https://www.tribuneindia.com/" target=_blank> - {{htn}} </a>
                     <hr>
                     {% endfor %}
                     <br>

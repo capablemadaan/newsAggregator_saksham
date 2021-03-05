@@ -19,13 +19,28 @@ tt_theadings = tt_tsoup.findAll("a", {"class": "card-top-align"})
 tt_tnews = []
 for hth in tt_theadings:
     tt_tnews.append(hth.text)
+toi_ha_r = requests.get("https://timesofindia.indiatimes.com/india")
+toi_ha_soup = BeautifulSoup(toi_ha_r.content, 'html.parser')
+toi_ha_headings = toi_ha_soup.find_all('li')
+toi_ha_headings=toi_ha_headings[76:136]
+toi_ha_news=[]
+for th in toi_ha_headings:
+    toi_ha_news.append(th.text)
+
+tt_har = requests.get("https://www.tribuneindia.com/news/nation")
+tt_hasoup = BeautifulSoup(tt_har.content, 'html.parser')
+tt_haheadings = tt_hasoup.findAll("a", {"class": "card-top-align"})
+#tt_theadings = tt_theadings[2:]
+tt_hanews = []
+for hth in tt_haheadings:
+    tt_hanews.append(hth.text)
 
 def index(req):
     return render(req, 'news/home.html')
 def index1(req):
     return render(req, 'news/trending.html',{'toi_t_news':toi_t_news, 'tt_tnews': tt_tnews})
-# def index2(req):
-#     return render(req, 'news/homeaffairs.html',)
+def index2(req):
+    return render(req, 'news/homeaffairs.html',{'toi_t_news':toi_ha_news, 'tt_tnews': tt_hanews})
 # def index3(req):
 #     return render(req, 'news/foreignaffairs.html',)
 # def index4(req):
