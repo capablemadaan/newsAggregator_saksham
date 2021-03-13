@@ -26,5 +26,5 @@ urlpatterns = [
     path('sports/', views.index4),
 #     path('snt/', views.index5),
     path('busi/', views.index6),
-#     path('dtu/', views.index7)    
+    path('dtu/', views.index7)       
  ]

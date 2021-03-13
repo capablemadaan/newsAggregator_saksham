@@ -50,7 +50,7 @@ tt_fasoup = BeautifulSoup(tt_far.content, 'html.parser')
 tt_faheadings = tt_fasoup.findAll("a", {"class": "card-top-align"})
 #tt_theadings = tt_theadings[2:]
 tt_fanews = []
-for hth in tt_haheadings:
+for hth in tt_faheadings:
     tt_fanews.append(hth.text)
 
 bi_b_r=requests.get("https://www.businessinsider.in/business/startups")
@@ -59,6 +59,15 @@ bi_bheadings=bi_bsoup.findAll("span",{"class":"liststories_heading"})
 bi_bnews=[]
 for h in bi_bheadings:
     bi_bnews.append(h.text)  
+
+
+dtu_r = requests.get("http://dtu.ac.in/")
+dtu_soup = BeautifulSoup(dtu_r.content, 'html.parser')
+dtu_headings = dtu_soup.findAll("a", {"class":"colr"})
+dtu_headings = dtu_headings[23:]
+dtu_news = []
+for hth in dtu_headings:
+    dtu_news.append(hth.text)
 
 tc_b_r=requests.get("https://techcrunch.com/startups/")
 tc_bsoup=BeautifulSoup(tc_b_r.content,'html.parser')
@@ -81,6 +90,7 @@ itn_sheadings = itn_sheadings[1:]
 itn_snews=[]
 for h in itn_sheadings:
     itn_snews.append(h.text)    
+
 def index(req):
     return render(req, 'news/home.html')
 def index1(req):
@@ -95,5 +105,6 @@ def index4(req):
 #     return render(req, 'news/snt.html')
 def index6(req):
     return render(req, 'news/busi.html',{'bi_bnews':bi_bnews,'tc_bnews':tc_bnews})
-#def index7(req):
-#    return render(req, 'news/dtu.html')
+def index7(req):
+    return render(req, 'news/dtu.html', {'dtu_news':dtu_news})
+
