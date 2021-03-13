@@ -4,7 +4,7 @@ from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 
-toi_t_r = requests.get("https://timesofindia.indiatimes.com/briefs")
+toi_t_r = requests.get("https://timesofindia.indiatimes.com/briefs")  # toi_t_r =times of india trnding r
 toi_t_soup = BeautifulSoup(toi_t_r.content, 'html.parser')
 toi_t_headings = toi_t_soup.find_all('h2')
 toi_t_headings=toi_t_headings[2:-13]
