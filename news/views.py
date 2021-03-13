@@ -67,6 +67,12 @@ tc_bnews=[]
 for h in tc_bheadings:
     tc_bnews.append(h.text)
 
+iex_s_r=requests.get("https://indianexpress.com/section/sports/")
+iex_ssoup=BeautifulSoup(iex_s_r.content,'html.parser')
+iex_sheadings=iex_ssoup.findAll("h2",{"class":"title"})
+iex_snews=[]
+for h in iex_sheadings:
+    iex_snews.append(h.text)
 def index(req):
     return render(req, 'news/home.html')
 def index1(req):
@@ -75,11 +81,11 @@ def index2(req):
     return render(req, 'news/homeaffairs.html',{'toi_t_news':toi_ha_news, 'tt_tnews': tt_hanews})
 def index3(req):
     return render(req, 'news/fa.html',{'toi_t_news':toi_fa_news, 'tt_tnews': tt_fanews})
-# def index4(req):
-#     return render(req, 'news/sports.html',)
+def index4(req):
+    return render(req, 'news/sports.html',{'iex_snews':iex_snews})
 # def index5(req):
 #     return render(req, 'news/snt.html')
 def index6(req):
     return render(req, 'news/busi.html',{'bi_bnews':bi_bnews,'tc_bnews':tc_bnews})
-# def index7(req):
-#     return render(req, 'news/dtu.html')
+#def index7(req):
+#    return render(req, 'news/dtu.html')
