@@ -60,6 +60,7 @@ bi_bnews=[]
 for h in bi_bheadings:
     bi_bnews.append(h.text)  
 
+<<<<<<< HEAD
 dtu_r = requests.get("http://dtu.ac.in/")
 dtu_soup = BeautifulSoup(dtu_r.content, 'html.parser')
 dtu_headings = dtu_soup.findAll("a", {"class":"colr"})
@@ -68,6 +69,14 @@ dtu_news = []
 for hth in dtu_headings:
     dtu_news.append(hth.text)
 
+=======
+tc_b_r=requests.get("https://techcrunch.com/startups/")
+tc_bsoup=BeautifulSoup(tc_b_r.content,'html.parser')
+tc_bheadings=tc_bsoup.findAll("h2",{"class":"post-block__title"})
+tc_bnews=[]
+for h in tc_bheadings:
+    tc_bnews.append(h.text)
+>>>>>>> 7952f4342811866b5c33f9718484b46571a2ed96
 
 def index(req):
     return render(req, 'news/home.html')
@@ -82,6 +91,12 @@ def index3(req):
 # def index5(req):
 #     return render(req, 'news/snt.html')
 def index6(req):
+<<<<<<< HEAD
     return render(req, 'news/busi.html',{'bi_bnews':bi_bnews})
 def index7(req):
     return render(req, 'news/dtu.html', {'dtu_news':dtu_news})
+=======
+    return render(req, 'news/busi.html',{'bi_bnews':bi_bnews,'tc_bnews':tc_bnews})
+# def index7(req):
+#     return render(req, 'news/dtu.html')
+>>>>>>> 7952f4342811866b5c33f9718484b46571a2ed96
