@@ -52,6 +52,14 @@ tt_faheadings = tt_fasoup.findAll("a", {"class": "card-top-align"})
 tt_fanews = []
 for hth in tt_haheadings:
     tt_fanews.append(hth.text)
+
+bi_b_r=requests.get("https://www.businessinsider.in/business/startups")
+bi_bsoup=BeautifulSoup(bi_b_r.content,'html.parser')
+bi_bheadings=bi_bsoup.findAll("span",{"class":"liststories_heading"})
+bi_bnews=[]
+for h in bi_bheadings:
+    bi_bnews.append(h.text)  
+
 def index(req):
     return render(req, 'news/home.html')
 def index1(req):
@@ -64,7 +72,7 @@ def index3(req):
 #     return render(req, 'news/sports.html',)
 # def index5(req):
 #     return render(req, 'news/snt.html')
-# def index6(req):
-#     return render(req, 'news/busi.html')
+def index6(req):
+    return render(req, 'news/busi.html',{'bi_bnews':bi_bnews})
 # def index7(req):
 #     return render(req, 'news/dtu.html')
