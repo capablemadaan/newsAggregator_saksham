@@ -50,7 +50,7 @@ tt_fasoup = BeautifulSoup(tt_far.content, 'html.parser')
 tt_faheadings = tt_fasoup.findAll("a", {"class": "card-top-align"})
 #tt_theadings = tt_theadings[2:]
 tt_fanews = []
-for hth in tt_haheadings:
+for hth in tt_faheadings:
     tt_fanews.append(hth.text)
 
 bi_b_r=requests.get("https://www.businessinsider.in/business/startups")
