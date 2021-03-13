@@ -64,7 +64,7 @@ for h in bi_bheadings:
 dtu_r = requests.get("http://dtu.ac.in/")
 dtu_soup = BeautifulSoup(dtu_r.content, 'html.parser')
 dtu_headings = dtu_soup.findAll("a", {"class":"colr"})
-dtu_headings = dtu_headings[23:]
+dtu_headings = dtu_headings[23:43]
 dtu_news = []
 for hth in dtu_headings:
     dtu_news.append(hth.text)
@@ -90,7 +90,7 @@ def index3(req):
 # def index5(req):
 #     return render(req, 'news/snt.html')
 def index6(req):
-    return render(req, 'news/busi.html',{'bi_bnews':bi_bnews})
+    return render(req, 'news/busi.html',{'bi_bnews':bi_bnews,' tc_bnews': tc_bnews})
 def index7(req):
     return render(req, 'news/dtu.html', {'dtu_news':dtu_news})
 # def index7(req):
