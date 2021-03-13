@@ -45,7 +45,7 @@ toi_fa_news=[]
 for th in toi_fa_headings:
     toi_fa_news.append(th.text)
 
-tt_far = requests.get("https://www.tribuneindia.com/news/nation")
+tt_far = requests.get("https://www.tribuneindia.com/news/world")
 tt_fasoup = BeautifulSoup(tt_far.content, 'html.parser')
 tt_faheadings = tt_fasoup.findAll("a", {"class": "card-top-align"})
 #tt_theadings = tt_theadings[2:]
