@@ -37,10 +37,10 @@ tt_hanews = []
 for hth in tt_haheadings:
     tt_hanews.append(hth.text)
 
-toi_fa_r = requests.get("https://timesofindia.indiatimes.com/india")
+toi_fa_r = requests.get("https://timesofindia.indiatimes.com/world")
 toi_fa_soup = BeautifulSoup(toi_fa_r.content, 'html.parser')
 toi_fa_headings = toi_fa_soup.find_all('li')
-# toi_fa_headings=toi_fa_headings[76:136]
+toi_fa_headings=toi_fa_headings[43:93]
 toi_fa_news=[]
 for th in toi_fa_headings:
     toi_fa_news.append(th.text)
