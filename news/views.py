@@ -73,6 +73,14 @@ iex_sheadings=iex_ssoup.findAll("h2",{"class":"title"})
 iex_snews=[]
 for h in iex_sheadings:
     iex_snews.append(h.text)
+
+itn_s_r=requests.get("https://www.thenews.com.pk/latest/category/sports")
+itn_ssoup=BeautifulSoup(itn_s_r.content,'html.parser')
+itn_sheadings=itn_ssoup.findAll("h2")
+itn_sheadings = itn_sheadings[1:]
+itn_snews=[]
+for h in itn_sheadings:
+    itn_snews.append(h.text)    
 def index(req):
     return render(req, 'news/home.html')
 def index1(req):
@@ -82,7 +90,7 @@ def index2(req):
 def index3(req):
     return render(req, 'news/fa.html',{'toi_t_news':toi_fa_news, 'tt_tnews': tt_fanews})
 def index4(req):
-    return render(req, 'news/sports.html',{'iex_snews':iex_snews})
+    return render(req, 'news/sports.html',{'iex_snews':iex_snews,'itn_snews':itn_snews})
 # def index5(req):
 #     return render(req, 'news/snt.html')
 def index6(req):
