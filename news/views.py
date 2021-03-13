@@ -60,6 +60,13 @@ bi_bnews=[]
 for h in bi_bheadings:
     bi_bnews.append(h.text)  
 
+tc_b_r=requests.get("https://techcrunch.com/startups/")
+tc_bsoup=BeautifulSoup(tc_b_r.content,'html.parser')
+tc_bheadings=tc_bsoup.findAll("h2",{"class":"post-block__title"})
+tc_bnews=[]
+for h in tc_bheadings:
+    tc_bnews.append(h.text)
+
 def index(req):
     return render(req, 'news/home.html')
 def index1(req):
@@ -73,6 +80,6 @@ def index3(req):
 # def index5(req):
 #     return render(req, 'news/snt.html')
 def index6(req):
-    return render(req, 'news/busi.html',{'bi_bnews':bi_bnews})
+    return render(req, 'news/busi.html',{'bi_bnews':bi_bnews,'tc_bnews':tc_bnews})
 # def index7(req):
 #     return render(req, 'news/dtu.html')
